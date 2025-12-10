@@ -1,5 +1,5 @@
 from utils.jsonFIleHandler import readFile
-from resources.path import PRODUCT_FILE_PATH
+from utils.path import PRODUCT_FILE_PATH
 from tabulate import tabulate
 from utils.limpiarConsola import limpiarConsola
 
