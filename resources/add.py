@@ -1,6 +1,6 @@
 from utils.jsonFIleHandler import *
 from resources.autoCode import *
-from resources.path import PRODUCT_FILE_PATH
+from utils.path import PRODUCT_FILE_PATH
 from datetime import *
 from utils.limpiarConsola import *
 
