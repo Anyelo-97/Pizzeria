@@ -1,7 +1,7 @@
 from utils.jsonFIleHandler import readFile, saveFile
 from utils.limpiarConsola import limpiarConsola
 from resources.autoCode import autoCodePD  
-from resources.path import PRODUCT_FILE_PATH
+from utils.path import PRODUCT_FILE_PATH
 from datetime import datetime
 from tabulate import tabulate
 
