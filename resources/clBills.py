@@ -1,4 +1,6 @@
-from resources.path import *
+
+
+from utils.path import *
 from utils.jsonFIleHandler import *
 from resources.viewDT import *
 from collections import defaultdict

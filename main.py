@@ -1,4 +1,4 @@
-from resources.addClient import *
+from resources.addClient import addClient
 from resources.menu import *
 from resources.orders import *
 from utils.limpiarConsola import *
@@ -10,7 +10,7 @@ while True:
     print(" ====== P I Z Z E R I A ======")
     print("===============================")
     
-    print("\n1. Agregar productos ")
+    print("\n1. Datos de productos ")
     print("2. Armar pedidos ")
     print("3. Clientes ")
     print("4. Salir")

@@ -10,7 +10,7 @@ from tabulate import tabulate
 
 def addProduct():
     limpiarConsola()
-    productos = readFile(PRODUCT_FILE_PATH) or []
+    products = readFile(PRODUCT_FILE_PATH) or []
 
     print("=== AGREGAR PRODUCTO ===")
 
@@ -34,8 +34,8 @@ def addProduct():
         "date": datetime.now().strftime("%Y-%m-%d %H:%M")
     }
 
-    productos.append(producto)
-    saveFile(PRODUCT_FILE_PATH, productos)
+    products.append(producto)
+    saveFile(PRODUCT_FILE_PATH, products)
 
     print("Producto agregado con éxito.")
 
@@ -45,23 +45,23 @@ def addProduct():
 
 def showProducts():
     limpiarConsola()
-    productos = readFile(PRODUCT_FILE_PATH) or []
+    products = readFile(PRODUCT_FILE_PATH) or []
 
     print("=== LISTA DE PRODUCTOS ===")
 
-    if not productos:
-        print("No hay productos registrados.")
+    if not products:
+        print("No hay products registrados.")
         return
 
     table = [
         [
-            p["codigo"],
-            p["nombre"],
-            p["precio"],
+            p["code"],
+            p["name"],
+            p["price"],
             p["stock"],
-            p["fecha"]
+            p["date"]
         ]
-        for p in productos
+        for p in products
     ]
 
     headers = ["Código", "Nombre", "Precio", "Stock", "Fecha"]
@@ -73,26 +73,26 @@ def showProducts():
 
 def editProduct():
     showProducts()
-    productos = readFile(PRODUCT_FILE_PATH) or []
+    products = readFile(PRODUCT_FILE_PATH) or []
 
     codigo = input("\nIngrese el código del producto a editar: ")
 
-    for p in productos:
-        if p["codigo"] == codigo:
-            print(f"Editando {p['nombre']}")
+    for p in products:
+        if str(p["code"] == codigo):
+            print(f"Editando {p['name']}")
 
-            nuevo_nombre = input(f"Nuevo nombre ({p['nombre']}): ").strip()
-            nuevo_precio = input(f"Nuevo precio ({p['precio']}): ").strip()
+            nuevo_nombre = input(f"Nuevo nombre ({p['name']}): ").strip()
+            nuevo_precio = input(f"Nuevo precio ({p['price']}): ").strip()
             nuevo_stock = input(f"Nuevo stock ({p['stock']}): ").strip()
 
             if nuevo_nombre:
-                p["nombre"] = nuevo_nombre
+                p["name"] = nuevo_nombre
             if nuevo_precio:
-                p["precio"] = float(nuevo_precio)
+                p["price"] = float(nuevo_precio)
             if nuevo_stock:
                 p["stock"] = int(nuevo_stock)
 
-            saveFile(PRODUCT_FILE_PATH, productos)
+            saveFile(PRODUCT_FILE_PATH, products)
             print("Producto actualizado.")
             return
 
@@ -104,14 +104,14 @@ def editProduct():
 
 def deleteProduct():
     showProducts()
-    productos = readFile(PRODUCT_FILE_PATH) or []
+    products = readFile(PRODUCT_FILE_PATH) or []
 
     codigo = input("\nCódigo del producto a eliminar: ")
 
-    for p in productos:
-        if p["codigo"] == codigo:
-            productos.remove(p)
-            saveFile(PRODUCT_FILE_PATH, productos)
+    for p in products:
+        if p["code"] == codigo:
+            products.remove(p)
+            saveFile(PRODUCT_FILE_PATH, products)
             print("Producto eliminado.")
             return
 
@@ -122,12 +122,12 @@ def deleteProduct():
 #   BUSCAR PRODUCTO
 
 def searchProduct():
-    productos = readFile(PRODUCT_FILE_PATH) or []
+    products = readFile(PRODUCT_FILE_PATH) or []
     texto = input("Buscar por nombre o código: ").lower()
 
     encontrados = [
-        p for p in productos
-        if texto in p["nombre"].lower() or texto in p["codigo"].lower()
+        p for p in products
+        if texto in p["name"].lower() or texto in p["code"].lower()
     ]
 
     if not encontrados:
@@ -136,7 +136,7 @@ def searchProduct():
 
     print("=== RESULTADOS ===")
     table = [
-        [p["codigo"], p["nombre"], p["precio"], p["stock"], p["fecha"]]
+        [p["code"], p["name"], p["price"], p["stock"], p["date"]]
         for p in encontrados
     ]
 

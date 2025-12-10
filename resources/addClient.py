@@ -1,7 +1,7 @@
 from utils.path import *
 from datetime import *
 from utils.jsonFIleHandler import *
-from resources.autoCode import *
+from resources.autoCode import autoCodeCL
 from utils.limpiarConsola import *
 
 def addClient():

@@ -1,6 +1,6 @@
 from utils.jsonFIleHandler import *
 from utils.findDictionaryIndex import *
-from resources.path import *
+from utils.path import *
 
 def autoCodePD():
     products = readFile(PRODUCT_FILE_PATH)

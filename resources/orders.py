@@ -25,7 +25,7 @@ def orders():
     print("=== CREAR NUEVA ORDEN ===")
     print("Ingrese productos. Escriba '0' para finalizar.\n")
 
-    # BUCLÉ PARA AGREGAR PRODUCTOS  
+    # Ciclo para agregar productos  
     while True:
         product_name = input("Producto: ").strip()
 
@@ -43,7 +43,7 @@ def orders():
             print("Producto no encontrado.")
             continue
 
-        # Cantidad
+        # Cantidad o stock
         try:
             qty = int(input("Cantidad: "))
             if qty <= 0:
@@ -77,7 +77,7 @@ def orders():
 
     # Validar orden vacía
     if not order["detalle"]:
-        print("No se agregaron productos. No se creó la orden.")
+        print("No se agregaron productos. No se creó el pedido.")
         return
 
     # Guardar orden
